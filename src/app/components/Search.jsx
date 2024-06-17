@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 
 export default function Search({ setIsLoading, setData }) {
-  const [user, setUser] = useState("bholu-singh");
+  const [user, setUser] = useState("");
 
   const handleSearch = useCallback(async () => {
     setIsLoading(true);
@@ -11,9 +11,9 @@ export default function Search({ setIsLoading, setData }) {
     setIsLoading(false);
   }, [user, setIsLoading, setData]);
 
-  useEffect(() => {
-    handleSearch();
-  }, [handleSearch]);
+  // useEffect(() => {
+  //   handleSearch();
+  // }, [handleSearch]);
 
   return (
     <div className="flex bg-dark-grey p-3 gap-3 rounded-md shadow-lg flex-wrap justify-center m-1">
