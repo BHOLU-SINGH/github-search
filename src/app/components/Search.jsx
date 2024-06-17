@@ -5,14 +5,56 @@ export default function Search({ setIsLoading, setData }) {
 
   const handleSearch = useCallback(async () => {
     setIsLoading(true);
-    const response = await fetch(`https://api.github.com/users/${user}`);
+    const response = await fetch(`/api/user/${user}`);
     const data = await response.json();
     setData(data);
     setIsLoading(false);
   }, [user, setIsLoading, setData]);
-  useEffect(() => {
-    handleSearch();
-  }, [handleSearch]);
+
+  // useEffect(async () => {
+  //   setData({
+  //     data: {
+  //       login: "BHOLU-SINGH",
+  //       id: 60701111,
+  //       node_id: "MDQ6VXNlcjYwNzAxMTEx",
+  //       avatar_url: "https://avatars.githubusercontent.com/u/60701111?v=4",
+  //       gravatar_id: "",
+  //       url: "https://api.github.com/users/BHOLU-SINGH",
+  //       html_url: "https://github.com/BHOLU-SINGH",
+  //       followers_url: "https://api.github.com/users/BHOLU-SINGH/followers",
+  //       following_url:
+  //         "https://api.github.com/users/BHOLU-SINGH/following{/other_user}",
+  //       gists_url: "https://api.github.com/users/BHOLU-SINGH/gists{/gist_id}",
+  //       starred_url:
+  //         "https://api.github.com/users/BHOLU-SINGH/starred{/owner}{/repo}",
+  //       subscriptions_url:
+  //         "https://api.github.com/users/BHOLU-SINGH/subscriptions",
+  //       organizations_url: "https://api.github.com/users/BHOLU-SINGH/orgs",
+  //       repos_url: "https://api.github.com/users/BHOLU-SINGH/repos",
+  //       events_url: "https://api.github.com/users/BHOLU-SINGH/events{/privacy}",
+  //       received_events_url:
+  //         "https://api.github.com/users/BHOLU-SINGH/received_events",
+  //       type: "User",
+  //       site_admin: false,
+  //       name: "Bholu Singh",
+  //       company: "owner of freeprojects1 blog",
+  //       blog: "https://freeprojects1.blogspot.com/",
+  //       location: "Bikaner Rajasthan India",
+  //       email: null,
+  //       hireable: true,
+  //       bio: "I'm Bholu Singh and I'm a seasoned web developer and designer with a passion for crafting captivating and user-centric web solutions.",
+  //       twitter_username: "bholu7972",
+  //       public_repos: 102,
+  //       public_gists: 0,
+  //       followers: 7,
+  //       following: 2,
+  //       created_at: "2020-02-05T13:57:03Z",
+  //       updated_at: "2024-06-14T11:56:04Z",
+  //     },
+  //     status: 200,
+  //     success: "true",
+  //   });
+  // }, [setData]);
 
   return (
     <div className="flex bg-dark-grey p-3 gap-3 rounded-md shadow-lg flex-wrap justify-center m-1">

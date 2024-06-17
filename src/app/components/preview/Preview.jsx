@@ -5,12 +5,13 @@ import Image from "next/image";
 import DetailData from "./DetailData";
 import Link from "next/link";
 
-export default function Preview({ data, isLoading }) {
+export default function Preview({ data, status, isLoading }) {
   const [handleListCard, setHandleListCard] = useState(false);
   const [listUrl, setListUrl] = useState("");
   const [count, setCount] = useState(0);
   const [isLoadingData, setIsLoadingData] = useState(false);
   console.log(data);
+
 
   const openReposList = () => {
     // window.open(data.repos_url, "_blank");
@@ -31,7 +32,7 @@ export default function Preview({ data, isLoading }) {
 
   return (
     <div className="bg-dark-grey p-7 gap-10 flex flex-col text-white justify-center rounded-md flex-wrap m-1">
-      {data.status ? (
+      {status !== 200 ? (
         <span className="text-center">
           User Not Found, Try again or Invalid Username!
         </span>
@@ -209,9 +210,9 @@ export default function Preview({ data, isLoading }) {
               {!isLoadingData ? (
                 <DetailData
                   setHandleListCard={setHandleListCard}
-                  listUrl={listUrl}
+                  user={data.login}
                   count={count}
-                  setIsLoadingData={setIsLoadingData}
+                  // setIsLoadingData={setIsLoadingData}
                 />
               ) : (
                 <div className="rounded-full h-5 w-5 border border-dark-blue border-t-transparent animate-spin"></div>
