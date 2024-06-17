@@ -122,11 +122,8 @@ export default function DetailData({
           ) : count == 1 ? (
             <div className="flex flex-wrap justify-start md:justify-center gap-5">
               {Object.values(data).map((item, index) => (
-                <Link href={item.html_url} target="_blank">
-                  <div
-                    key={item.id}
-                    className="border-b max-w-md p-5 rounded-md border-slate-500 hover:border-slate-100 delay-100 md:w-full hover:bg-dark-grey hover:text-slate-50 cursor-pointer"
-                  >
+                <Link key={item.id} href={item.html_url} target="_blank">
+                  <div className="border-b max-w-md p-5 rounded-md border-slate-500 hover:border-slate-100 delay-100 md:w-full hover:bg-dark-grey hover:text-slate-50 cursor-pointer">
                     <h4>
                       Repos count: <span className="text-md">{index + 1}</span>
                     </h4>
